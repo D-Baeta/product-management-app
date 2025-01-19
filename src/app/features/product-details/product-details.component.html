@@ -1,0 +1,26 @@
+<div class="product-details-container">
+  <h2>Product Details</h2>
+  <div *ngIf="load">
+    <ul class="product-details-list">
+      <li><strong>Index:</strong> {{ productIndex }}</li>
+      <li><strong>SKU:</strong> {{ product.sku }}</li>
+      <li><strong>Name:</strong> {{ product.name }}</li>
+      <li><strong>Description:</strong> {{ product.description }}</li>
+      <li><strong>Price:</strong> {{ product.cost | currency }}</li>
+      <li><strong>Type:</strong> {{ product.profile.type }}</li>
+      <li><strong>Available:</strong> {{ product.profile.available ? 'Yes' : 'No' }}</li>
+      <li><strong>Backlog:</strong> {{ product.profile.backlog || 'N/A' }}</li>
+      <li *ngFor="let key of objectKeys(product.profile.customProperties)">
+        <strong>{{ key }}:</strong> {{ product.profile.customProperties[key] }}
+      </li>
+    </ul>
+  </div>
+
+  <div class="button-container">
+    <button class="back-btn" (click)="goBack()">Back to List</button>
+    <button class="edit-btn" (click)="editProduct()">Edit</button>
+    <button class="delete-btn" (click)="confirmDelete()">Delete</button>
+  </div>
+
+  <app-confirmation-alert></app-confirmation-alert>
+</div>

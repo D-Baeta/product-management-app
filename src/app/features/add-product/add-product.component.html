@@ -1,0 +1,47 @@
+<div class="add-product-container">
+  <h2>New Product</h2>
+  <form [formGroup]="productForm" (ngSubmit)="save()" class="add-product-form">
+    <!-- Basic Fields -->
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" />
+
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+
+    <label for="sku">SKU:</label>
+    <input id="sku" type="number" formControlName="sku" step="1" />
+
+    <label for="cost">Cost:</label>
+    <input id="cost" type="number" formControlName="cost" step="0.01" />
+
+    <!-- Profile Fields -->
+    <div formGroupName="profile">
+      <label for="type">Type:</label>
+      <select id="type" formControlName="type">
+        <option value="furniture">Furniture</option>
+        <option value="equipment">Equipment</option>
+        <option value="stationary">Stationary</option>
+        <option value="part">Part</option>
+      </select>
+
+      <label for="available">
+        <input id="available" type="checkbox" formControlName="available" /> Available
+      </label>
+
+      <label for="backlog">Backlog:</label>
+      <input id="backlog" type="number" formControlName="backlog" />
+
+      <label>Custom Properties:</label>
+      <app-custom-properties-editor
+        [customProperties]="productForm.get('profile.customProperties')?.value"
+        (propertiesChange)="updateCustomProperties($event)"
+      ></app-custom-properties-editor>
+
+    </div>
+
+    <div class="button-container">
+      <button class="back-btn" (click)="goBack()">Back</button>
+      <button class="save-btn" type="submit">Save</button>
+    </div>
+  </form>
+</div>

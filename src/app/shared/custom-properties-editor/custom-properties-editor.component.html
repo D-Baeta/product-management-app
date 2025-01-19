@@ -1,0 +1,13 @@
+<div class="custom-properties-container">
+  <div *ngFor="let key of keys">
+    <label>{{ key }}</label>
+    <input [value]="customProperties[key]" (input)="updateValue(key, $event)" />
+    <button class="delete-btn" type="button" (click)="deleteProperty(key)">Delete</button>
+  </div>
+
+  <div class="add-property">
+    <input placeholder="Key" [(ngModel)]="newKey" />
+    <input placeholder="Value" [(ngModel)]="newValue" />
+    <button class="add-btn" type="button" (click)="addProperty()">Add</button>
+  </div>
+</div>
