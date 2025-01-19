@@ -1,0 +1,93 @@
+/* Container styles */
+.product-editor-container {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* Heading styles */
+.product-editor-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Form styles */
+.product-editor-form label {
+  display: block;
+  font-size: 16px;
+  margin: 10px 0 5px;
+  color: #555;
+}
+
+.product-editor-form input,
+.product-editor-form textarea,
+.product-editor-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+.product-editor-form input[type="checkbox"] {
+  width: auto;
+  margin-right: 5px;
+}
+
+
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.back-btn,
+.save-btn {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: none;
+  outline: none;
+}
+
+.back-btn {
+  background-color: #3498db;
+  color: white;
+}
+
+.back-btn:hover {
+  background-color: #2980b9;
+}
+
+.save-btn {
+  background-color: #4caf50;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #3b893e;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .product-editor-container {
+    padding: 15px;
+  }
+  .button-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .back-btn,
+  .save-btn {
+    width: 100%;
+  }
+}

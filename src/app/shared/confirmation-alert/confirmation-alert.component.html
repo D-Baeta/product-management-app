@@ -1,0 +1,10 @@
+<div *ngIf="isShown()" class="alert-container">
+  <div class="alert-content">
+    <p>{{ message }}</p>
+    <div class="alert-actions">
+      <button (click)="onClose()" class="alert-button cancel-btn">Cancel</button>
+      <button (click)="onConfirm()" class="alert-button confirm-btn">Confirm</button>
+    </div>
+  </div>
+</div>
+

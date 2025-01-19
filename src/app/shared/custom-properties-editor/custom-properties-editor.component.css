@@ -1,0 +1,47 @@
+.custom-properties-container {
+  margin: 10px 0;
+}
+
+.custom-properties-container div {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.custom-properties-container label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.custom-properties-container input {
+  margin-right: 10px;
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  flex: 1;
+}
+
+.custom-properties-container button {
+  padding: 5px 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn {
+  background-color: #4caf50;
+}
+
+.add-btn:hover {
+  background-color: #3b893e;
+}
+
+.delete-btn {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
+.delete-btn:hover {
+  background-color: #c0392b;
+}
