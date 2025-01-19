@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../core/api.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
 
 @Component({
   selector: 'app-add-product',
@@ -17,14 +17,14 @@ export class AddProductComponent {
     private fb: FormBuilder
   ) {
     this.productForm = this.fb.group({
-      name: ['', Validators.required],
+      name: [null, Validators.required],
       description: [''],
-      sku: [0, [Validators.required, Validators.min(0)]],
-      cost: [0, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      sku: [null, Validators.required],
+      cost: [null, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/), this.nonNegativeValidator]],
       profile: this.fb.group({
         type: ['furniture'],
-        available: [true],
-        backlog: [null, Validators.min(0)],
+        available: [true, Validators.required],
+        backlog: [null, [this.nonNegativeValidator]],
         customProperties: [[]]
       }),
     });
@@ -38,6 +38,7 @@ export class AddProductComponent {
         this.router.navigate([`/products`]);
       });
     }
+    console.log(this.productForm.valid)
   }
 
   goBack(): void {
@@ -47,4 +48,13 @@ export class AddProductComponent {
   updateCustomProperties(customProperties: { [key: string]: string }): void {
     this.productForm.get('profile')?.patchValue({ customProperties });
   }
+
+  nonNegativeValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value < 0) {
+      return { negative: true };
+    }
+    return null;
+  }
+
 }
