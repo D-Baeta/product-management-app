@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApiService } from '../../core/api.service';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
+import { nonNegativeValidator } from '../../shared/custom-validation.component';
 
 @Component({
   selector: 'app-add-product',
@@ -20,11 +21,11 @@ export class AddProductComponent {
       name: [null, Validators.required],
       description: [''],
       sku: [null, Validators.required],
-      cost: [null, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/), this.nonNegativeValidator]],
+      cost: [null, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/), nonNegativeValidator]],
       profile: this.fb.group({
         type: ['furniture'],
-        available: [true, Validators.required],
-        backlog: [null, [this.nonNegativeValidator]],
+        available: [true],
+        backlog: [null, nonNegativeValidator],
         customProperties: [[]]
       }),
     });
@@ -48,13 +49,4 @@ export class AddProductComponent {
   updateCustomProperties(customProperties: { [key: string]: string }): void {
     this.productForm.get('profile')?.patchValue({ customProperties });
   }
-
-  nonNegativeValidator(control: AbstractControl): ValidationErrors | null {
-    const value = control.value;
-    if (value < 0) {
-      return { negative: true };
-    }
-    return null;
-  }
-
 }

@@ -4,12 +4,15 @@
 
     <label for="name">Name:</label>
     <input id="name" formControlName="name" />
+    <small *ngIf="productForm.get('name')?.touched && productForm.get('name')?.hasError('required')" class="error-msg">Name is required</small>
 
     <label for="description">Description:</label>
     <textarea id="description" formControlName="description"></textarea>
 
     <label for="cost">Cost:</label>
-    <input id="cost" type="number" formControlName="cost" step="0.01" />
+    <input id="cost" type="number" formControlName="cost" step="0.01" min="0"/>
+    <small *ngIf="productForm.get('cost')?.touched && productForm.get('cost')?.hasError('required')" class="error-msg">Cost is required</small>
+    <small *ngIf="productForm.get('cost')?.touched && productForm.get('cost')?.hasError('negative')" class="error-msg">Cost must be a posite number</small>
 
     <div formGroupName="profile">
       <label for="type">Type:</label>
@@ -25,7 +28,8 @@
       </label>
 
       <label for="backlog">Backlog:</label>
-      <input id="backlog" type="number" formControlName="backlog" />
+      <input id="backlog" type="number" formControlName="backlog" min="0"/>
+      <small *ngIf="productForm.get('profile.backlog')?.touched && productForm.get('profile.backlog')?.hasError('negative')" class="error-msg">Backlog must be a posite number</small>
 
       <label>Custom Properties:</label>
       <app-custom-properties-editor

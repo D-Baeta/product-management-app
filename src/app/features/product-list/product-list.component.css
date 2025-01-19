@@ -43,52 +43,6 @@ table tr:hover {
   background-color: #f1f1f1;
 }
 
-button {
-  padding: 8px 12px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 14px;
-  margin: 0 5px;
-}
-
-.details-btn {
-  background-color: #3498db;
-  color: #fff;
-}
-
-.details-btn:hover {
-  background-color: #2980b9;
-}
-
-.edit-btn {
-  background-color: #f39c12;
-  color: #fff;
-}
-
-.edit-btn:hover {
-  background-color: #e67e22;
-}
-
-.delete-btn {
-  background-color: #e74c3c;
-  color: #fff;
-}
-
-.delete-btn:hover {
-  background-color: #c0392b;
-}
-
-.add-btn {
-  flex: 0 1 10%;
-  text-align: center;
-  background-color: #4caf50;
-  color: white;
-}
-
-.add-btn:hover {
-  background-color: #3b893e;
-}
 
 .header {
   display: flex;

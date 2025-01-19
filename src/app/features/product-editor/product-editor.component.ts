@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../core/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { nonNegativeValidator } from '../../shared/custom-validation.component';
 
 @Component({
   selector: 'app-product-editor',
@@ -19,13 +20,13 @@ export class ProductEditorComponent implements OnInit {
     private fb: FormBuilder
   ) {
     this.productForm = this.fb.group({
-      name: ['', Validators.required],
+      name: [null, Validators.required],
       description: [''],
-      cost: [0, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/)]],
+      cost: [null, [Validators.required, Validators.min(0), Validators.pattern(/^\d+(\.\d{1,2})?$/), nonNegativeValidator]],
       profile: this.fb.group({
         type: ['furniture'],
         available: [true],
-        backlog: [null, Validators.min(0)],
+        backlog: [null, nonNegativeValidator],
         customProperties: [[]]
       }),
     });
