@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ApiService } from '../../core/api.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -12,7 +12,6 @@ export class AddProductComponent {
   productForm: FormGroup;
 
   constructor(
-    private route: ActivatedRoute,
     private router: Router,
     private apiService: ApiService,
     private fb: FormBuilder

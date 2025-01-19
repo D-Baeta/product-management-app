@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CustomPropertiesEditorComponent } from './custom-properties-editor.component';
+import { SharedModule } from '../shared.module';
 
 describe('CustomPropertiesEditorComponent', () => {
   let component: CustomPropertiesEditorComponent;
@@ -8,7 +9,8 @@ describe('CustomPropertiesEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CustomPropertiesEditorComponent ]
+      declarations: [ CustomPropertiesEditorComponent],
+      imports: [ SharedModule]
     })
     .compileComponents();
 

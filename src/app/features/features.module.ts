@@ -1,9 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
-import { ConfirmationAlertComponent } from '../shared/confirmation-alert/confirmation-alert.component';
-
 import { ProductDetailsComponent } from './product-details/product-details.component';
 import { ProductEditorComponent } from './product-editor/product-editor.component';
 import { LoginComponent } from './login/login.component';
@@ -21,9 +18,8 @@ import { AddProductComponent } from './add-product/add-product.component';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     SharedModule
   ],
-  providers: [ConfirmationAlertComponent]
+  providers: []
 })
 export class FeaturesModule { }

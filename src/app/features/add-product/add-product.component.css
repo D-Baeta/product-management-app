@@ -1,14 +1,12 @@
-/* Container styles */
 .add-product-container {
   max-width: 600px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 8px;
   background-color: white;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* Heading styles */
 .add-product-container h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -16,7 +14,6 @@
   color: #333;
 }
 
-/* Form styles */
 .add-product-form label {
   display: block;
   font-size: 16px;
@@ -77,7 +74,6 @@
   background-color: #3b893e;
 }
 
-/* Responsive styles */
 @media (max-width: 768px) {
   .add-product-container {
     padding: 15px;

@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductEditorComponent } from './product-editor.component';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('ProductEditorComponent', () => {
   let component: ProductEditorComponent;
@@ -8,7 +10,20 @@ describe('ProductEditorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductEditorComponent ]
+      declarations: [ ProductEditorComponent ],
+      imports: [HttpClientTestingModule, SharedModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get: () => 3
+              }
+            }
+          }
+        }
+      ]
     })
     .compileComponents();
 

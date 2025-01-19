@@ -1,7 +1,7 @@
 <div class="product-editor-container">
   <h2>Edit Product</h2>
   <form [formGroup]="productForm" (ngSubmit)="save()" class="product-editor-form">
-    <!-- Basic Fields -->
+
     <label for="name">Name:</label>
     <input id="name" formControlName="name" />
 
@@ -11,7 +11,6 @@
     <label for="cost">Cost:</label>
     <input id="cost" type="number" formControlName="cost" step="0.01" />
 
-    <!-- Profile Fields -->
     <div formGroupName="profile">
       <label for="type">Type:</label>
       <select id="type" formControlName="type">

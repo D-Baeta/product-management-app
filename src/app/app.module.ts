@@ -4,8 +4,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { ProductListComponent } from './features/product-list/product-list.component';
 import { FeaturesModule } from './features/features.module';
+import { SharedModule } from './shared/shared.module';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,9 @@ import { FeaturesModule } from './features/features.module';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FeaturesModule
+    FeaturesModule,
+    SharedModule,
+    CoreModule
   ],
   providers: [],
   bootstrap: [AppComponent],

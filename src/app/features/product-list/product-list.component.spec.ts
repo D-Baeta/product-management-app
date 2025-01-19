@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ProductListComponent } from './product-list.component';
+import { ApiService } from 'src/app/core/api.service';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 describe('ProductListComponent', () => {
   let component: ProductListComponent;
@@ -8,7 +10,9 @@ describe('ProductListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProductListComponent ]
+      declarations: [ ProductListComponent ],
+      imports: [HttpClientTestingModule, SharedModule],
+      providers: [ApiService]
     })
     .compileComponents();
 
